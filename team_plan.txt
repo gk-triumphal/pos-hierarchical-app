@@ -1,93 +1,70 @@
 <think>
-Okay, so the user is a Team Lead and needs to get the agent list and tasks from the Project Manager. The main goal is to create agents dynamically by defining their names, models, and prompts based on a plan. Then, review their work and report back to the Project Manager. Also, coordinate sub-agents for each piece and output a conversational text with bullet points for phases. No JSON.
+Okay, let's break down the user's query. They want me to act as a Team Lead who receives agent lists and tasks from a Project Manager. The tasks involve creating agents dynamically based on a plan, reviewing their work, coordinating sub-agents for each task, and outputting conversational text with bullet points for phases.
 
-First, I need to break down the process into phases. Let me start with phase one: consulting with the Project Manager. That makes sense to get the tasks and requirements. Then, I have to design the agent framework. So, for each agent, define their role, models (like choosing between LLMs or APIs), and unique prompts. 
+First, I need to understand the structure of the phases. The user mentioned phases with bullet points, so each phase should have a clear title and steps. The first phase is about receiving the task from the Project Manager. I should note that I'll get the agent list and tasks, maybe the plan. Then, I need to create agents dynamically. That involves defining names, models, and prompts based on the plan provided.
 
-Next, creating dynamic agent models comes after the framework is set. Here, I need to build the agents based on the defined specs. Then, coordination phase—assigning each agent their sub-agents and tasks. Maybe using a tool or a framework to manage interactions between them. 
+Next, there's the coordination part. For each task, I might need to assign sub-agents. How do I structure that? Each main task could have a lead agent and specific sub-agents handling different aspects. Also, the review process is important—after agents create their deliverables, I should review them, provide feedback, and report back to the Project Manager.
 
-After that, execution phase where agents start working on their tasks. Then review their outputs, provide feedback, adjust if needed. Then report to the Project Manager with a summary of the work done. Finally, closing phase where tasks are validated, lessons learned, and documentation.
+I should make sure the output is in conversational text with bullet points, no JSON. So, after outlining the phases, each step should be clear and concise. Let me start drafting each phase.
 
-Wait, maybe I should check if the agents need to interact with each other. The coordination of sub-agents is mentioned, so each agent might have sub-agents that help them. How does the review process work? Maybe the Team Lead reviews the main agents first, then checks each sub-agent's contribution. 
+Phase 1: Receiving the task. The Project Manager sends the list and tasks. I'll need to outline what info is received. Phase 2: Creating agents dynamically. Here, I'll explain how agents are named (based on their role), which models they use, and their prompts. Phase 3: Coordination of sub-agents. Maybe for each task, split into sub-agents handling specific parts. Phase 4: Reviewing and reporting. Check the work, give feedback, compile reports.
 
-Also, the output needs to be conversational with bullet points. So, no JSON, just plain text with phases as bullet points. Make sure each phase is clear and the action items are listed properly. 
+Wait, the user mentioned "for each piece, coordinate sub-agents." That might mean that each task (piece) has multiple sub-agents working on parts. So, in phase 3, I need to specify that for each task, I assign sub-agents.
 
-I need to ensure that each phase flows logically. Starting from getting the plan, designing, building, coordinating, executing, reviewing, reporting, and finalizing. Each step should have key actions and maybe some examples of agent roles or models used. For example, a Content Strategist agent using a specific model for research. 
+Also, models and prompts. The models could be specific LLMs like GPT-4o for some, Claude for others. Prompts tailored to the role, like analytical for data, creative for content, etc.
 
-Is there anything I missed? Maybe specific tools or methods for each phase. But the user didn't mention any, so maybe just general steps. Also, the sub-agents coordination—perhaps assigning each agent to manage its own sub-team. 
+I need to ensure the bullets are clear, and the phases flow logically. Let me structure each phase with bullet points under them. Avoid using markdown. Use simple language. Maybe start with:
 
-Wait, the user said "coordinate sub-agents for each piece". Each main task might be a "piece", and each has sub-agents. So during the coordination phase, the Team Lead assigns sub-agents to each main agent based on the task. 
+As Team Lead:
 
-In the review phase, the Team Lead would assess both the main agent's work and any sub-agents. If the sub-agents are causing issues, adjust their parameters. 
+Phase 1: Receiving Tasks
+- Get agent list/tasks from PM.
+- Review plan details.
 
-Reporting back to the Project Manager should include successes and challenges. Maybe an action item list for the PM to follow up. 
+Phase 2: Creating Agents
+- Define agents' names based on roles.
+- Assign models suitable for tasks.
+- Create prompts tailored to each role.
 
-I think that's covered. Now, structure each phase with bullet points, keeping it conversational. No markdown, just plain text with phases as bullet points. Each phase has key actions and maybe some examples. Make sure to explain the steps clearly so the Team Lead knows what to do at each stage.
+Phase 3: Coordinating Sub-agents
+- For each task, assign sub-agents.
+- Distribute sub-tasks among sub-agents.
+- Ensure collaboration and clarity.
+
+Phase 4: Reviewing and Reporting
+- Review deliverables.
+- Provide feedback to agents.
+- Compile and report to PM.
+
+That's a rough outline. Now, fill in each section with more details. For example, in Phase 3, maybe give an example of a task and the sub-agents involved. Also, in Phase 2, specify examples of agent names and models. Need to make sure the language is conversational and not too technical. Avoid JSON, just plain text with bullets. Let me put it all together now.
 </think>
 
-**Team Lead Workflow to Create Agents Dynamically & Coordinate Tasks**  
-*(Phases outlined with conversational text + action items per phase)*  
+As Team Lead:  
+Here’s how we’ll structure the process:  
 
-1. **Consult with Project Manager**  
-   - 🎯 **Goal:** Clarify goals, tasks, and agent requirements.  
-   - 🔐 *Action Items:*  
-     - Request agent list, task scope, and model preferences (e.g., "Which tasks need LLMs vs API tools?").  
-     - Define success metrics (accuracy, speed, creativity).  
-     - Example: *Project Manager says: "We need an agent for data research using a lightweight model and another for creative writing using a text API."*  
+---  
+**Phase 1: Receiving Task Plan from Project Manager**  
+- Receive agent list and task assignments (e.g., data analysis, content creation, QA).  
+- Review the project plan to identify key milestones, agent roles, and dependencies.  
+- Confirm understanding with the Project Manager and ask clarifying questions if needed.  
 
-2. **Design Agent Framework**  
-   - 🛠️ **Goal:** Create dynamic agent specs from the plan.  
-   - 🔐 *Action Items:*  
-     - Assign **agent names/roles** (e.g., "DataHarvester," "CreativeWritr").  
-     - Define **models** for each agent (e.g., "Use GPT-3 for research agent," "Use Stable Diffusion for image sub-agent").  
-     - Craft **prompts** for alignment (e.g., "Harvest data in JSON under 5MB").  
-     - Example: *Agent "DataHarvester" uses a lightweight model for fast queries, with a prompt: "Summarize key findings from this dataset in 100 words."*  
+**Phase 2: Dynamically Creating Agents**  
+- **Names:** Assign agent names based on their specialized role (e.g., `DataAnalyzer_01`, `ContentWriter_Creative`).  
+- **Models:** Select appropriate AI models (e.g., GPT-4o for content, Claude 3 for technical analysis) aligned with task complexity.  
+- **Prompts:** Design role-specific prompts to guide outputs (e.g., "Analyze data trends with clear visualization suggestions").  
 
-3. **Build Agents Dynamically**  
-   - 🏗️ **Goal:** Instantiate agents based on specsheet.  
-   - 🔐 *Action Items:*  
-     - Automate agent creation via scripts (names/models/prompts).  
-     - Add sub-agents where needed (e.g., "DataHarvester" gets a "CSVParser" sub-agent for format conversion).  
-     - Test agents with small tasks to validate setup.  
-     - Example: *Agent "CreativeWritr" is built with a 5,000-token budget to avoid truncating stories.*  
+**Phase 3: Coordinating Sub-agents for Each Task**  
+- **Example Task:** "Generate a product launch strategy with market analysis and user personas."  
+  - **Sub-agents:**  
+    - `MarketResearcher`: Uses a model for data mining and competitive intelligence.  
+    - `PersonaGenerator`: Focused on creative persona development with structured outputs.  
+    - `Synthesizer`: Aggregates inputs into a cohesive strategy document.  
+- Ensure sub-agents collaborate via shared context or handoffs.  
 
-4. **Coordinate Sub-Agents**  
-   - 🤝 **Goal:** Assign sub-agents to collaborate on tasks.  
-   - 🔐 *Action Items:*  
-     - Link agents to sub-agents via workflows (e.g., "DataHarvester → CSVParser → ReportAgent").  
-     - Set dependencies (e.g., "CreativeWritr waits for "PlotOutline" sub-agent to finish first").  
-     - Use a shared log to track agent-sub-agent interactions.  
-     - Example: *Agent "ProjectManagerBot" oversees all others, flagging delays via alerts.*  
+**Phase 4: Reviewing Outputs and Reporting**  
+- Review each agent’s deliverable for alignment with the plan.  
+- Provide feedback (e.g., "Persona Generator needs to include age demographics").  
+- Summarize progress in a report to the Project Manager, flagging risks or delays.  
 
-5. **Execute & Monitor**  
-   - 🚀 **Goal:** Run tasks while ensuring alignment.  
-   - 🔐 *Action Items:*  
-     - Launch agents and observe first outputs.  
-     - Intervene if agents diverge from goals (e.g., "CreativeWritr" is too verbose → adjust token limit).  
-     - Collect outputs in a centralized folder (e.g., "Agent_Outs/Task1-DataHarvester").  
-     - Example: *Sub-agent "CSVParser" under "DataHarvester" outputs messy data → Team Lead triggers a "CleanData" tool agent.*  
-
-6. **Review & Refine**  
-   - 🔁 **Goal:** Improve outputs based on feedback.  
-   - 🔐 *Action Items:*  
-     - Evaluate agent performance against metrics (accuracy, creativity).  
-     - Redo tasks for underperforming agents (e.g., "CreativeWritr" gets extra prompts for plot coherence).  
-     - Update sub-agents if needed (e.g., "CSVParser" gets a stricter schema).  
-     - Example: *Agent "ReportAgent" mislabels graphs → Add a "GraphLabeler" sub-agent.*  
-
-7. **Report to Project Manager**  
-   - 📄 **Goal:** Summarize progress and bottlenecks.  
-   - 🔐 *Action Items:*  
-     - Highlight key outputs (e.g., "DataHarvester completed 80% of dataset").  
-     - Flag issues (e.g., "CreativeWritr needs a tighter prompt for formatting").  
-     - Request next steps (e.g., "Approve additional hours to polish sub-agent outputs?").  
-     - Example: *Final report: "All agents passed QA, ready for deployment. Recommend 2 extra hours for CreativeWritr polish."*  
-
-8. **Close & Document**  
-   - 📄 **Goal:** Archive tasks and lessons.  
-   - 🔐 *Action Items:*  
-     - Save agent configs in repo for future projects.  
-     - Document sub-agent workflow adjustments (e.g., "CSVParser needs stricter formatting").  
-     - Share final outputs with PM and team.  
-     - Example: *Repo commit: "V2-DataHarvester: Sub-agent CSVParser added for 95% accuracy."*  
-
-Let me know if you need clarifications or adjustments to phases 3-5! 🛠️
+---  
+Let me know if you’d like to dive deeper into any phase!
