@@ -1,67 +1,55 @@
 <think>
-Okay, let me start by understanding the user's request. They provided a structured plan for building a POS system integrated with existing tools like Odoo, Loyverse, and Square, along with offline and online functionality. The plan is divided into phases, each with specific agents and tasks.
+Okay, let's see. The user wants me to act as a Team Lead and outline the process of getting agent lists or tasks from a Project Manager, then create agents dynamically based on a plan. Then review their work and report back, coordinating sub-agents for each task. They want a conversational text with bullet points for phases, no JSON.
 
-First, I need to extract the main goal: creating a detailed technical architecture and implementation steps for a hybrid POS system for Singapore hawker stalls. The agents are organized by Phases 1 to 5, each with roles and tasks. The user wants this information presented in a conversational format with bullet points, avoiding JSON, and ensuring each phase is reviewed by a "Team Lead" agent who coordinates sub-agents, then reports to the Project Manager.
+First, I need to break this down into phases. Let me start with Phase 1: Receiving the plan from the Project Manager. So, the Team Lead gets the task list and project plan. That makes sense. Need to make sure to clarify the scope, maybe ask questions if something's unclear.
 
-I need to make sure each phase is clearly outlined with the respective agents and their specific tasks. The response should be concise, using bullet points for each phase's details. Also, the user emphasized that the output should be in conversational text, so I should avoid technical jargon where possible and keep the explanation straightforward.
+Next, Phase 2: Creating agents dynamically. That means generating agent names, choosing models, and setting prompts based on the plan. For example, if the project is about data analysis, maybe create an agent called DataAnalyzer. But how do I decide on the models? Well, the user might have preferred models, but since it's dynamic, maybe selecting based on the task type. For prompts, tailor each to the task—they need to be clear and focused.
 
-I should also check if all the agents from the original plan are included, such as UX Designer, DB Architect, Security Analyst, Fullstack Devs, etc., and that each has appropriate tasks assigned. Additionally, the tools and systems listed at the end should be mentioned to provide a complete picture.
+Then, Phase 3: Coordinating sub-agents per task. So, each main task has sub-agents working on parts of it. For instance, if the main task is market research, sub-agents could be MarketAnalyzer and CompetitorReporter. Here, I need to define dependencies or workflows between sub-agents. Also, assign priorities and deadlines.
 
-Finally, the response should conclude with a summary that ties everything together, ensuring the Project Manager gets a clear overview of the plan and its execution steps. I need to ensure clarity and that each phase logically follows the previous one, from design to maintenance.
+Phase 4: Monitoring and Review. The Team Lead needs to check each agent's output. If issues arise, maybe re-prompt or adjust the model. Then compile the results and report progress to the Project Manager. This phase should include feedback loops for adjustments.
+
+Phase 5: Reporting to the Project Manager. Summarize each task's status, highlight any risks or achievements. Get feedback for the next phase. It's important to make the report concise but informative.
+
+I need to present this in a conversational list without JSON, using bullet points. Let me structure each phase step by step. Make sure each phase has clear actions and outcomes. Use examples where possible, like agent names and tasks. Avoid technical jargon unless necessary. Keep the flow logical from receiving the plan to final reporting. Also, ensure that coordination with sub-agents is highlighted as a key part of each task. Maybe mention how agents communicate among themselves to maintain consistency.
+
+Wait, the user mentioned "coordinate sub-agents for each piece." Maybe in Phase 3, clarify that each piece (task) has sub-agents, and the coordination involves how they interact. Also, in Phase 4, when reviewing agents' work, mention specific actions like checking accuracy and relevance. Need to ensure that the process is dynamic—like if a problem arises, the Team Lead adjusts the approach.
+
+Let me check if I covered all parts of the original request: get tasks from PM, create agents, review and report, coordinate sub-agents, and output in bullet points with phases. Yes, each phase addresses these. Examples like agent names and models (e.g., GPT for content) help illustrate the dynamic part.
+
+I should avoid any markdown, just plain text with bullet points and phases numbered. Make sure it's conversational, maybe start with "As Team Lead,". Let me start drafting.
 </think>
 
-**Team Lead Review & Reporting to Project Manager**  
+As Team Lead:  
 
----
+**Phase 1: Receiving the Plan**  
+- Retrieve the agent list and project tasks from the Project Manager.  
+- Clarify the scope, deadlines, and key deliverables. Ask questions to resolve ambiguities in the plan.  
 
-### **Phase 1: Design**  
-- **UX Designer** crafted offline POS interface with dark mode and community features (e.g., vendor stories).  
-- **DB Architect** mapped SQLite/AWS Aurora schema and resolved Odoo-Loyverse sync conflicts.  
-- **Security Analyst** finalized PDPA compliance and card tokenization via Square.  
-- ✅ All designs validated for hawker workflows:  
-  - *Example task:* "Stalls need 1-click order sync during lunch rush."  
+**Phase 2: Dynamically Creating Agents**  
+- Define agent names, models, and prompts based on the project’s needs. For example:  
+   - **Agent Name:** DataAnalyzer  
+   - **Model:** GPT-x for complexity, Mistral for speed.  
+   - **Prompt:** “Prioritize root-cause analysis for discrepancies in sales data.”  
+- Assign each agent a specific role aligned with their purpose (e.g., Task Orchestrator, Content Validator).  
 
----
+**Phase 3: Coordinating Sub-Agents per Task**  
+- For every main task, break it into subtasks and assign sub-agents:  
+   Example Task: *Market Research Report*  
+   - Sub-Agents: MarketAnalyzer (gathers trends), CompetitorReporter (compares benchmarks).  
+- Define workflows (e.g., MarketAnalyzer > CompetitorReporter > SummaryWriter).  
+- Set dependencies (e.g., SummaryWriter waits for inputs from both sub-agents).  
 
-### **Phase 2: Develop**  
-- **Frontend Dev** shipped React Native app with geofenced alerts and offline SQLite/PouchDB.  
-- **Backend Dev** launched Django/Node APIs for Loyverse/Odoo real-time updates.  
-- **DevOps** containerized services (Docker) for 50+ stalls and configured AWS AppSync.  
-- 🧪 Test coverage:  
-  - *Sync stress test:* 500 offline transactions → 100% cloud sync after 2G reconnection.  
+**Phase 4: Monitoring & Review**  
+- Check outputs from agents for accuracy, relevance, and alignment with the plan.  
+   - Example: If DataAnalyzer flags an error, re-prompt it with: “Re-analyze using 2023 Q1-Q2 benchmarks.”  
+- Compile results into structured summaries. Escalate critical issues to the Project Manager.  
 
----
+**Phase 5: Reporting to the Project Manager**  
+- Deliver progress updates with:  
+   - ✅ Tasks completed (list + results).  
+   - ⚠️ Risks (e.g., delay in CompetitorReporter output).  
+   - 📈 Key insights (e.g., top 3 market trends).  
+- Adjust the plan based on feedback (e.g., prioritize high-impact tasks or reassign underperforming agents).  
 
-### **Phase 3: Test**  
-- **QA Lead** caught 32 bugs, including POS sync delays during peak hours.  
-- **Integration Tester** confirmed Loyverse/Odoo inventory sync (e.g., 100 bowls logged → 100 Odoo update).  
-- **Security Tester** passed PCI DSS check for Square and locked AWS WAF endpoints.  
-- 🔒 Example fix: "OAuth2 roles updated to restrict assistant access to financial dashboards."  
-
----
-
-### **Phase 4: Deploy**  
-- **Release Manager** executed zero-downtime Azure CI/CD for POS updates.  
-- **Cloud Engineer** triggered AWS Lambda alerts for restock (e.g., "Stock < 5%" → SMS hawker).  
-- 🚀 Deployment metrics:  
-  - *Tekka Market rollout:* 72 stalls onboarded within 3 hours.  
-
----
-
-### **Phase 5: Maintain**  
-- **Support Engineer** trained 100+ hawker staff on POS recovery and Loyverse sync.  
-- **Monitoring Lead** set up Datadog alerts for POS sync delays (e.g., >5% → Slack alert).  
-- **Tech Architect** iterated on feedback:  
-  - *Top request:* "Add QR code sharing for food reviews at Hawker Center 2024."  
-
----
-
-### **Key Tools Systems**  
-- **CI/CD**: GitHub Actions, Docker, AWS CodePipeline  
-- **Offline Sync**: AppSync/PouchDB with exponential backoff  
-- **PCI DSS**: Square’s tokenization + AWS WAF  
-- **Community**: Google Maps feed + Firebase social features  
-
---- 
-
-Ready for review! Would you like to drill into any phase or adjust sub-agent workflows?
+Let me know if you’d like to dive deeper into any phase!
