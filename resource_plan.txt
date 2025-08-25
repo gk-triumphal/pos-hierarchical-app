@@ -1,0 +1,84 @@
+<think>
+Okay, let's break down the problem I need to solve. The user is looking to develop a POS system tailored for Singapore's hawker stalls that works both online and offline. They want it to integrate existing solutions like Odoo, Loyverse, and Square. My task is to outline the technical architecture and implementation steps, considering the SDLC phases and technical stack.
+
+First, I need to understand the existing tools and how to integrate them. Odoo is for offline and inventory, Loyverse for inventory tracking, and Square for payments. The system needs to function offline, so there has to be a reliable sync mechanism when online. The user is emphasizing community features like reviews and ratings, so the frontend needs to support that.
+
+I should consider the tech stack. For cloud, maybe AWS since they mentioned Singapore compliance. For backend, Python with Django or a framework that supports REST APIs. The frontend needs to be cross-platform, maybe React Native or Flutter. Databases should handle offline storage, so SQLite paired with a cloud database like AWS Aurora makes sense. 
+
+Security is a big concern here, especially with payments. Using TLS and AES encryption as mentioned. Authentication using OAuth2 for staff and JWT for APIs. Testing is crucial, especially for offline-to-online sync and high traffic scenarios. 
+
+Deployment-wise, CI/CD pipelines with AWS CodePipeline or GitHub Actions. Monitoring tools like AWS CloudWatch for performance tracking. Community features like maps and reviews will require integrating Google Maps API and maybe a rating system. 
+
+Wait, did I miss anything? The user also wants the system to work in both online and offline modes, so I need to detail how transactions queue when offline and sync later. Also, real-time updates for vendors and customers are important. Maybe WebSockets for real-time notifications.
+
+I need to structure this in a way that's clear for the project manager and tech team. List the core components, their technologies, how they integrate, and address security and deployment. Make sure each part is justified for a hawker context, like affordability and ease of use.
+
+Let me start by outlining the core stack, then get into each component like POS service, user app, payments, etc. Mention integrations with existing systems, security measures, deployment strategies, and risk mitigation. Also, include example workflows to illustrate how it all works.
+</think>
+
+### **Agent Roles & Task Assignments**  
+*(Phases: Design ➝ Develop ➝ Test ➝ Deploy ➝ Maintain)*  
+
+---
+
+#### **Phase 1: Design (Tech Lead & UI/UX Lead)**  
+- **UX Designer**  
+  - Craft offline-first POS interface (e.g., dark mode for hawker center lighting).  
+  - Design community feed with vendor stories and food history trivia.  
+- **DB Architect**  
+  - Map SQLite schema + AWS Aurora tables for hybrid data storage.  
+  - Define sync rules for odoo/loyverse data collisions (e.g., "highest timestamp wins").  
+- **Security Analyst**  
+  - Finalize PDPA/GDPR compliance docs for Square integration.  
+  - Draft tokenization strategy for card data (e.g., Square’s "token → cloud → no local storage").  
+
+#### **Phase 2: Develop (Fullstack & DevOps)**  
+- **Frontend Dev** (React Native)  
+  - Build POS app with offline mode (SQLite + PouchDB).  
+  - Add geofenced alerts: "200m from stall A → Show loyalty discount?"  
+- **Backend Dev** (Django/Node)  
+  - Develop real-time inventory sync APIs for Loyverse + Odoo.  
+  - Create WebSocket server for live updates (e.g., "Your order is cooking 🍳").  
+- **DevOps Engineer**  
+  - Set up AWS AppSync for offline POS sync (e.g., 5000 transactions/day at Tekka Market).  
+  - Containerize services (Docker/K8s) for hawker center scalability (e.g., 50+ stalls).  
+
+#### **Phase 3: Test (QA & Security)**  
+- **QA Lead**  
+  - Simulate offline scenarios (e.g., POS loses signal during lunch rush).  
+  - Stress-test with 1000 concurrent users + 80% offline transactions.  
+- **Integration Tester**  
+  - Validate Loyverse → Odoo sync (e.g., "Loyverse logs 100 fewer bowls → Odoo updates").  
+  - Test Square payments with offline-to-online sync (e.g., 500+ offline charges at Kallang).  
+- **Security Tester**  
+  - Run penetration tests on Square APIs + AWS endpoints.  
+  - Validate OAuth2 roles (e.g., "Assistant cannot view financials").  
+
+#### **Phase 4: Deploy (Cloud & DevOps)**  
+- **Release Manager**  
+  - Blue/Green deploy POS app via GitHub Actions (e.g., no downtime at Changi Food Centre).  
+  - Push Android/iOS updates to hawker stalls with Google Firebase.  
+- **Cloud Engineer**  
+  - Provision AWS Lambda for Loyverse event triggers (e.g., "Stock < 10% → SMS rePO").  
+  - Set up AWS WAF for rate-limiting POS login attempts.  
+
+#### **Phase 5: Maintain (Monitoring & Support)**  
+- **Support Engineer**  
+  - Train staff on POS recovery (e.g., "Sync failed? Press F5 to retry").  
+  - Create hawker onboarding guide (e.g., "5 steps to set up Loyverse stock").  
+- **Monitoring Lead**  
+  - Alert for >10% POS offline data delays (e.g., via Datadog dashboards).  
+  - Track top 3 rated stalls via sentiment analysis (e.g., "Top chicken rice gets 84% positive reviews").  
+- **Tech Architect**  
+  - Iterate on user feedback (e.g., "Add QR code for menu sharing in Hawker Center 2024").  
+  - Optimize Square sync for high-volume days (e.g., Lunar New Year sales).  
+
+---
+
+### **Key Tools & Systems**  
+- **CI/CD**: GitHub Actions, Docker, AWS CodePipeline  
+- **Offline Sync**: AWS AppSync/PouchDB, exponential backoff  
+- **Compliance**: Square’s PCI DSS, AWS WAF/CloudTrail logs  
+- **Community Features**: Firebase + Google Maps + NLP sentiment analysis  
+
+Let’s build this for hawker resilience—offline-first, hawker-friendly, and community-centric 🔥
